@@ -32,46 +32,46 @@ class Element {
         symbol: String,
         category: String,
         phase: String,
-        appearance: String?,
-        discoveredBy: String?,
-        namedBy: String?,
-        source: String?,
-        spectralImg: String?,
+        source: String,
         summary: String,
         atomicMass: Double,
-        boil: Double,
-        density: Double,
-        melt: Double,
-        molarHeat: Double,
         number: Int,
         period: Int,
         xpos: Int,
         ypos: Int,
         shells: [Int],
-        color: Any?
+        appearance: String?,
+        discoveredBy: String?,
+        namedBy: String?,
+        spectralImg: String?,
+        color: String?,
+        boil: Double?,
+        density: Double?,
+        melt: Double?,
+        molarHeat: Double?
         ) {
         
-    _name = name
-    _symbol = symbol
-    _category = category
-    _phase = phase
-    _appearance = appearance
-    _discoveredBy = discoveredBy
-    _namedBy = namedBy
-    _source = source
-    _spectralImg = spectralImg
-    _summary = summary
-    _atomicMass = atomicMass
-    _boil = boil
-    _density = density
-    _melt = melt
-    _molarHeat = molarHeat
-    _number = number
-    _period = period
-    _xpos = xpos
-    _ypos = ypos
-    _shells = shells
-    _color = color
+        _name = name
+        _symbol = symbol
+        _category =  category
+        _phase = phase
+        _source = source
+        _summary = summary
+        _atomicMass = atomicMass
+        _number = number
+        _period = period
+        _xpos = xpos
+        _ypos = ypos
+        _shells =  shells
+        _appearance = appearance
+        _discoveredBy = discoveredBy
+        _namedBy = namedBy
+        _spectralImg = spectralImg
+        _color = color
+        _boil = boil
+        _density = density
+        _melt = melt
+        _molarHeat =  molarHeat
     }
     
     //MARK: Private element values
@@ -79,19 +79,10 @@ class Element {
     private let _symbol: String
     private let _category: String
     private let _phase: String
-    
-    private let _appearance: String?
-    private let _discoveredBy: String?
-    private let _namedBy: String?
-    private let _source: String?
-    private let _spectralImg: String?
+    private let _source: String
     private let _summary: String
     
     private let _atomicMass: Double
-    private let _boil: Double
-    private let _density: Double
-    private let _melt: Double
-    private let _molarHeat: Double
     
     private let _number: Int
     private let _period: Int
@@ -100,8 +91,16 @@ class Element {
     
     private let _shells: [Int]
     
-    private let _color: Any?
+    private let _appearance: String?
+    private let _discoveredBy: String?
+    private let _namedBy: String?
+    private let _spectralImg: String?
+    private let _color: String?
     
+    private let _boil: Double?
+    private let _density: Double?
+    private let _melt: Double?
+    private let _molarHeat: Double?
 }
 
 //MARK: Element Extensions
@@ -121,8 +120,3 @@ extension Element: Equatable, Comparable {
         return lhs.name == rhs.name && lhs.atomicNumber == rhs.atomicNumber && lhs.atomicMass == rhs.atomicMass
     }
 }
-
-
-
-
-
