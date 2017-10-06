@@ -18,6 +18,7 @@
 		006B78601F876E1700A46624 /* PeriodicTableJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 006B785F1F876CFE00A46624 /* PeriodicTableJSON.json */; };
 		006B78621F87900200A46624 /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B78611F87900200A46624 /* PeriodicTable.swift */; };
 		006B78641F8795E800A46624 /* ElementViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B78631F8795E800A46624 /* ElementViewCell.swift */; };
+		006B78661F87BFC200A46624 /* DetailedElementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B78651F87BFC200A46624 /* DetailedElementVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		006B785F1F876CFE00A46624 /* PeriodicTableJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PeriodicTableJSON.json; sourceTree = "<group>"; };
 		006B78611F87900200A46624 /* PeriodicTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
 		006B78631F8795E800A46624 /* ElementViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementViewCell.swift; sourceTree = "<group>"; };
+		006B78651F87BFC200A46624 /* DetailedElementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedElementVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0049A3A41F8724D500F39431 /* MainVC.swift */,
+				006B78651F87BFC200A46624 /* DetailedElementVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006B78661F87BFC200A46624 /* DetailedElementVC.swift in Sources */,
 				0049A3A51F8724D500F39431 /* MainVC.swift in Sources */,
 				0049A3A31F8724D500F39431 /* AppDelegate.swift in Sources */,
 				0049A3B91F87266000F39431 /* Element.swift in Sources */,

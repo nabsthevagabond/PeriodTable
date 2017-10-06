@@ -11,21 +11,30 @@ import Foundation
 class Element {
     
     //MARK: Element Properties
-    var name: String {
-        return _name
-    }
+    var name: String { return _name }
+    var symbol: String { return _symbol }
+    var atomicNumber: Int { return _number }
+    var atomicMass: Double { return _atomicMass }
+    var category: String { return _category }
+    var phase: String { return _phase }
+    var source: String { return _source }
+    var summary: String { return _summary }
+    var period: Int { return _period }
+    var xpos: Int { return _xpos }
+    var ypos: Int { return _ypos }
+    var shells: [Int] { return _shells }
     
-    var symbol: String {
-        return _symbol
-    }
+    var appearance: String? { return _appearance }
+    var discoveredBy: String? { return _discoveredBy }
+    var namedBy: String? { return _namedBy }
+    var spectralImg: String? { return _spectralImg }
+    var color: String? { return _color }
     
-    var atomicNumber: Int {
-        return _number
-    }
+    var boil: Double? { return _boil }
+    var density: Double? { return _density }
+    var melt: Double? { return _melt }
+    var molarHeat: Double? { return _molarHeat }
     
-    var atomicMass: Double {
-        return _atomicMass
-    }
     
     init(
         name: String,

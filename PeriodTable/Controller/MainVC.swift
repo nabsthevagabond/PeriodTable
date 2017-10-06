@@ -23,6 +23,14 @@ class MainVC: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? DetailedElementVC {
+            if let element =  sender as? Element {
+                destinationViewController.element = element
+            }
+        }
+    }
 }
 
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
@@ -43,9 +51,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
        
-
         let width = view.frame.width
-        
         let customCell = cell as! ElementViewCell
         
         customCell.alpha = 0
@@ -55,10 +61,13 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
             customCell.transform = .identity
             customCell.alpha = 1
         })
-        
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let element = periodicTable.elements[indexPath.row]
+        performSegue(withIdentifier: "toDetailedElementVC", sender: element)
+    }
 }
 
 

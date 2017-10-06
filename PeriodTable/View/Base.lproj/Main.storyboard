@@ -79,11 +79,27 @@
                     <navigationItem key="navigationItem" title="Periodic Table" id="lRw-33-lu0"/>
                     <connections>
                         <outlet property="tableView" destination="vdu-fl-1ej" id="Aki-Sm-Gew"/>
+                        <segue destination="GHq-NY-bOW" kind="show" identifier="toDetailedElementVC" id="pik-VM-wkV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.59999999999999" y="24.7376311844078"/>
+            <point key="canvasLocation" x="185" y="25"/>
+        </scene>
+        <!--Detailed ElementVC-->
+        <scene sceneID="W6p-6G-sKT">
+            <objects>
+                <viewController id="GHq-NY-bOW" customClass="DetailedElementVC" customModule="PeriodTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5eu-LY-xXh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="krA-mU-dgR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAr-n7-tf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="978" y="25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g4P-bH-8W5">
