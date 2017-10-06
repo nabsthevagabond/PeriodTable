@@ -21,11 +21,11 @@ class MainVC: UIViewController{
         periodicTable = PeriodicTable(elements: elements)
         
         tableView.dataSource = self
-        
+        tableView.delegate = self
     }
 }
 
-extension MainVC: UITableViewDataSource {
+extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return periodicTable.elements.count
@@ -39,9 +39,40 @@ extension MainVC: UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+    }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+       
+
+        let width = view.frame.width
+        
+        let customCell = cell as! ElementViewCell
+        
+        customCell.alpha = 0
+        customCell.transform = CGAffineTransform.init(translationX: width, y: 0)
+
+        UIView.animate(withDuration: 0.2, delay: 0, options: .allowAnimatedContent, animations: {
+            customCell.transform = .identity
+            customCell.alpha = 1
+        })
+        
     }
     
     
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
