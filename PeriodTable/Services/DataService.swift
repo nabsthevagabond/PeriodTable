@@ -104,4 +104,17 @@ class DataService {
         }
         return elementsArray
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

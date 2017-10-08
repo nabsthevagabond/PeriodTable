@@ -119,7 +119,10 @@ extension Element: CustomStringConvertible {
     }
 }
 
-extension Element: Equatable, Comparable {
+extension Element: Equatable, Comparable, Hashable {
+    var hashValue: Int {
+         return name.hashValue ^ symbol.hashValue ^ atomicNumber.hashValue ^ atomicMass.hashValue
+    }
     
     static func <(lhs: Element, rhs: Element) -> Bool {
         return lhs.atomicNumber < rhs.atomicNumber
