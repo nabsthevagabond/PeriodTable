@@ -17,9 +17,15 @@ class MainVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //customizeNavigationBar()
+        //background transparent
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         let elements = DataService.jsonToElements()
         periodicTable = PeriodicTable(elements: elements)
-        
+    
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -69,19 +75,3 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "toDetailedElementVC", sender: element)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

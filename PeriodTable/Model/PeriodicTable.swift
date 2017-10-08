@@ -8,6 +8,26 @@
 
 import Foundation
 
+//enum ElementCatergory: String {
+//    case  actinide = "actinide"
+//
+//    "category": "actinide",
+//    "category": "alkali metal",
+//    "category": "alkaline earth metal",
+//    "category": "diatomic nonmetal",
+//    "category": "lanthanide",
+//    "category": "metalloid",
+//    "category": "noble gas",
+//    "category": "polyatomic nonmetal",
+//    "category": "post-transition metal",
+//    "category": "transition metal",
+//    "category": "unknown, predicted to be noble gas",
+//    "category": "unknown, probably post transition metal",
+//    "category": "unknown, probably transition metal",
+//    "category": "unknown,probably metalloid",
+//
+//}
+
 class PeriodicTable {
     
     var elements: [Element] {
