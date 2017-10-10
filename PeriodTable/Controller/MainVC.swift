@@ -16,6 +16,8 @@ class MainVC: UIViewController {
     
     var periodicTable: PeriodicTable!
     var elements: [Element]!
+    var filteredElements: [Element]!
+    var isSearchActive: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +30,6 @@ class MainVC: UIViewController {
         //initialize navigation bar
         customizeNavigationBar()
         
-        //set up gesture recognizer
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(dimissKeyboard))
-        //view.addGestureRecognizer(tap)
-    
         //initialize elements.
         let jsonElements = DataService.jsonToElements()
         periodicTable = PeriodicTable(elements: jsonElements)
@@ -56,15 +54,21 @@ class MainVC: UIViewController {
     }
 }
 
+//MARK: - TableView dataSource and deletages
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isSearchActive {
+            return filteredElements.count
+        }
+        
         return elements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "elementCell") as? ElementViewCell {
-            let element = elements[indexPath.row]
+            let element = (isSearchActive) ? filteredElements[indexPath.row] : elements[indexPath.row]
             cell.updateElementCellUI(element: element)
             return cell
         } else {
@@ -74,6 +78,10 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
+        if isSearchActive {
+            return
+        }
+        
         let width = view.frame.width
         let customCell = cell as! ElementViewCell
         
@@ -87,47 +95,41 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let element = elements[indexPath.row]
+        
+        let element = (isSearchActive) ? filteredElements[indexPath.row] : elements[indexPath.row]
         performSegue(withIdentifier: "toDetailedElementVC", sender: element)
     }
 }
 
+//MARK: SearchBar delegate
 extension MainVC: UISearchBarDelegate {
     
-//    @objc func dimissKeyboard(){
-//        view.endEditing(true)
-//    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-
-
-        
-        
-        if searchBar.text == ""  {
-            elements = periodicTable.elements
-            searchBar.resignFirstResponder()
-        } else {
-            let lowerCaseSearchText = searchText.lowercased()
-            let filterElements = periodicTable.elements.filter { $0.name.lowercased().range(of: lowerCaseSearchText) != nil  }
-
-            elements = filterElements
-        }
-
-        
-        
-        
-        print(searchText.lowercased())
-        tableView.reloadData()
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
+        isSearchActive = true
     }
     
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
-//        print("cancel")
-//    }
-//
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
+        isSearchActive = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
+        isSearchActive = false
+        searchBar.text = ""
+        
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        
+        let lowerCaseSearchText = searchText.lowercased()
+        filteredElements = elements.filter { $0.name.lowercased().range(of: lowerCaseSearchText) != nil  }
+        isSearchActive = (filteredElements.count == 0) ? false : true
+        
+        tableView.reloadData()
+    }
 }

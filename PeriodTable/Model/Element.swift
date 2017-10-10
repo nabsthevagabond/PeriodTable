@@ -6,7 +6,7 @@
 //  Copyright © 2017 nabs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Element {
     
@@ -27,7 +27,6 @@ class Element {
     var appearance: String? { return _appearance }
     var discoveredBy: String? { return _discoveredBy }
     var namedBy: String? { return _namedBy }
-    var spectralImg: String? { return _spectralImg }
     var color: String? { return _color }
     
     var boil: Double? { return _boil }
@@ -35,6 +34,25 @@ class Element {
     var melt: Double? { return _melt }
     var molarHeat: Double? { return _molarHeat }
     
+    var spectralImgUrl: String? { return _spectralImgUrl }
+    var spectralImg: UIImage? {
+        guard let string = _spectralImgUrl else {
+            return nil
+        }
+        
+        guard let url = URL(string: string) else {
+            return nil
+        }
+        
+        var tmpImage: UIImage?
+        DataService.getImgFromUrl(url: url, completion: {
+            (image) in
+            tmpImage = image
+        })
+        
+        //print(tmpImage)
+        return tmpImage
+    }
     
     init(
         name: String,
@@ -52,7 +70,7 @@ class Element {
         appearance: String?,
         discoveredBy: String?,
         namedBy: String?,
-        spectralImg: String?,
+        spectralImgUrl: String?,
         color: String?,
         boil: Double?,
         density: Double?,
@@ -75,7 +93,7 @@ class Element {
         _appearance = appearance
         _discoveredBy = discoveredBy
         _namedBy = namedBy
-        _spectralImg = spectralImg
+        _spectralImgUrl = spectralImgUrl
         _color = color
         _boil = boil
         _density = density
@@ -103,7 +121,7 @@ class Element {
     private let _appearance: String?
     private let _discoveredBy: String?
     private let _namedBy: String?
-    private let _spectralImg: String?
+    private let _spectralImgUrl: String?
     private let _color: String?
     
     private let _boil: Double?
@@ -132,3 +150,6 @@ extension Element: Equatable, Comparable, Hashable {
         return lhs.name == rhs.name && lhs.atomicNumber == rhs.atomicNumber && lhs.atomicMass == rhs.atomicMass
     }
 }
+
+
+

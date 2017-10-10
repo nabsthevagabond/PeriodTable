@@ -6,7 +6,7 @@
 //  Copyright © 2017 nabs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class DataService {
    //static let instance: DataService = DataService()
@@ -89,7 +89,7 @@ class DataService {
                 let appearance = element[JSONDataKey.appearance] as? String
                 let discoveredBy = element[JSONDataKey.discoveredBy] as? String
                 let namedBy = element[JSONDataKey.namedBy] as? String
-                let spectral = element[JSONDataKey.spectralImg] as? String
+                let spectralImgUrl = element[JSONDataKey.spectralImg] as? String
                 let color = element[JSONDataKey.color] as? String
 
                 let boil = element[JSONDataKey.boil] as? Double
@@ -97,7 +97,7 @@ class DataService {
                 let melt = element[JSONDataKey.melt] as? Double
                 let molarHeat = element[JSONDataKey.molarHeat] as? Double
                 
-                let elementObject = Element(name: name, symbol: symbol, category: catergory, phase: phase, source: source, summary: summary, atomicMass: atomicMass, number: number, period: period, xpos: xpos, ypos: ypos, shells: shells, appearance: appearance, discoveredBy: discoveredBy, namedBy: namedBy, spectralImg: spectral, color: color, boil: boil, density: density, melt: melt, molarHeat: molarHeat)
+                let elementObject = Element(name: name, symbol: symbol, category: catergory, phase: phase, source: source, summary: summary, atomicMass: atomicMass, number: number, period: period, xpos: xpos, ypos: ypos, shells: shells, appearance: appearance, discoveredBy: discoveredBy, namedBy: namedBy, spectralImgUrl: spectralImgUrl, color: color, boil: boil, density: density, melt: melt, molarHeat: molarHeat)
             
                 elementsArray.append(elementObject)
             }
@@ -105,16 +105,23 @@ class DataService {
         return elementsArray
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    static func getImgFromUrl(url: URL, completion: @escaping (UIImage?)->()){
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            //background thread.
+            var downloadedImage: UIImage?
+            if let data = data, error == nil {
+                if let image = UIImage(data: data){
+                    downloadedImage = image
+                }
+            } else {
+                print(error.debugDescription)
+            }
+            
+            //main thread.
+            DispatchQueue.main.async {
+                    completion(downloadedImage)
+            }
+        }.resume()
+    }
 }
