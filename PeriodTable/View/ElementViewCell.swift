@@ -16,5 +16,6 @@ class ElementViewCell: UITableViewCell {
     func updateElementCellUI(element: Element){
         name.text = element.name
         symbol.text = element.symbol
+        symbol.backgroundColor = element.backgroundColor
     }
 }

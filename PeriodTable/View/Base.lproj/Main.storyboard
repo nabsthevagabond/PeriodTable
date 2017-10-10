@@ -25,6 +25,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="QvF-Tc-yRW"/>
                                 </constraints>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vdu-fl-1ej">
@@ -75,7 +76,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="o1O-4s-vcc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5nh-70-10L"/>
                             <constraint firstItem="vdu-fl-1ej" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D4b-BZ-dCE"/>
@@ -108,13 +109,25 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNq-b1-pxD">
                                 <rect key="frame" x="30" y="94" width="315" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFn-Pw-x6c">
+                                        <rect key="frame" x="144.5" y="78.5" width="26.5" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="FFn-Pw-x6c" firstAttribute="centerY" secondItem="UNq-b1-pxD" secondAttribute="centerY" id="QgD-6G-68g"/>
+                                    <constraint firstItem="FFn-Pw-x6c" firstAttribute="centerX" secondItem="UNq-b1-pxD" secondAttribute="centerX" id="aT0-vk-ouf"/>
+                                </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vq4-1h-Ov8">
                                 <rect key="frame" x="30" y="304" width="315" height="333"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vq4-1h-Ov8" firstAttribute="trailing" secondItem="UNq-b1-pxD" secondAttribute="trailing" id="2i6-ho-mW4"/>
                             <constraint firstItem="UNq-b1-pxD" firstAttribute="leading" secondItem="krA-mU-dgR" secondAttribute="leading" constant="30" id="9t6-El-cpw"/>
@@ -129,6 +142,7 @@
                     </view>
                     <connections>
                         <outlet property="elementCardView" destination="UNq-b1-pxD" id="atu-uS-I7T"/>
+                        <outlet property="symbolName" destination="FFn-Pw-x6c" id="Ml2-Xj-qvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAr-n7-tf5" userLabel="First Responder" sceneMemberID="firstResponder"/>

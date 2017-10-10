@@ -35,24 +35,11 @@ class Element {
     var molarHeat: Double? { return _molarHeat }
     
     var spectralImgUrl: String? { return _spectralImgUrl }
-    var spectralImg: UIImage? {
-        guard let string = _spectralImgUrl else {
-            return nil
-        }
-        
-        guard let url = URL(string: string) else {
-            return nil
-        }
-        
-        var tmpImage: UIImage?
-        DataService.getImgFromUrl(url: url, completion: {
-            (image) in
-            tmpImage = image
-        })
-        
-        //print(tmpImage)
-        return tmpImage
+    var backgroundColor: UIColor {
+        return phaseToColor(_phase)
     }
+    
+    
     
     init(
         name: String,
@@ -128,6 +115,15 @@ class Element {
     private let _density: Double?
     private let _melt: Double?
     private let _molarHeat: Double?
+    
+   
+    private func phaseToColor (_ phaseString: String)-> UIColor {
+        switch(phaseString){
+        case "Gas" : return UIColor.green
+        case "Liquid": return UIColor.blue
+        default: return UIColor.purple
+        }
+    }
 }
 
 //MARK: Element Extensions

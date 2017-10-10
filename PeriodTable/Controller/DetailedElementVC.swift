@@ -11,6 +11,7 @@ import UIKit
 class DetailedElementVC: UIViewController {
 
     @IBOutlet weak var elementCardView: UIView!
+    @IBOutlet weak var symbolName: UILabel!
     @IBOutlet weak var elementDetails: UIScrollView!
     
     var element: Element!
@@ -23,7 +24,8 @@ class DetailedElementVC: UIViewController {
     }
 
     func updateUIDetailedVC(){
-        
+        symbolName.text = element.symbol
+        elementCardView.backgroundColor = element.backgroundColor
     }
     
 }
