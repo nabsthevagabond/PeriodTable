@@ -10,6 +10,26 @@ import UIKit
 
 class Element {
     
+    let nameTitle = "name"
+    let symbolTitle = "symbol"
+    let atomicNumberTitle = "atomic number"
+    let atomicMassTitle = "atomic mass"
+    let catergoryTitle = "catergory"
+    let phaseTitle = "phase"
+    let sourceTitle = "source"
+    let summaryTitle = "summary"
+    let periodTitle = "period"
+    let xposTitle = "xpos"
+    let yposTitle = "ypos"
+    let appearanceTitle = "appearance"
+    let discoveredByTitle = "discovered by"
+    let namedByTitle = "named by"
+    let colorTitle = "color"
+    let boilTitle = "boiling point"
+    let densityTitle = "density"
+    let meltTitle = "melting point"
+    let molarHeatTitle = "molar heat"
+    
     //MARK: Element Properties
     var name: String { return _name }
     var symbol: String { return _symbol }
@@ -35,12 +55,11 @@ class Element {
     var molarHeat: Double? { return _molarHeat }
     
     var spectralImgUrl: String? { return _spectralImgUrl }
+    
     var backgroundColor: UIColor {
         return phaseToColor(_phase)
     }
-    
-    
-    
+
     init(
         name: String,
         symbol: String,
@@ -116,7 +135,6 @@ class Element {
     private let _melt: Double?
     private let _molarHeat: Double?
     
-   
     private func phaseToColor (_ phaseString: String)-> UIColor {
         switch(phaseString){
         case "Gas" : return UIColor.green
@@ -124,6 +142,7 @@ class Element {
         default: return UIColor.purple
         }
     }
+
 }
 
 //MARK: Element Extensions
