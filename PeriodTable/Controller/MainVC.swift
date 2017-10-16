@@ -35,7 +35,7 @@ class MainVC: UIViewController {
         periodicTable = PeriodicTable(elements: jsonElements)
         elements = periodicTable.elements
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? DetailedElementVC {
             if let element =  sender as? Element {
@@ -46,7 +46,6 @@ class MainVC: UIViewController {
     }
     
     private func customizeNavigationBar(){
-        //customizeNavigationBar()
         //background transparent
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -82,12 +81,11 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
+        //slide right animation
         let width = view.frame.width
         let customCell = cell as! ElementViewCell
-        
         customCell.alpha = 0
         customCell.transform = CGAffineTransform.init(translationX: width, y: 0)
-
         UIView.animate(withDuration: 0.2, delay: 0, options: .allowAnimatedContent, animations: {
             customCell.transform = .identity
             customCell.alpha = 1
@@ -106,18 +104,11 @@ extension MainVC: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
         isSearchActive = true
+        updateFilterElements(searchBar.text!)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
         isSearchActive = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
-        isSearchActive = false
-        searchBar.text = ""
-        
-        searchBar.resignFirstResponder()
-        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -125,11 +116,14 @@ extension MainVC: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        
-        let lowerCaseSearchText = searchText.lowercased()
+        updateFilterElements(searchText)
+        tableView.reloadData()
+    }
+    
+    func updateFilterElements(_ text: String){
+
+        let lowerCaseSearchText = text.lowercased()
         filteredElements = elements.filter { $0.name.lowercased().range(of: lowerCaseSearchText) != nil  }
         isSearchActive = (filteredElements.count == 0) ? false : true
-        
-        tableView.reloadData()
     }
 }

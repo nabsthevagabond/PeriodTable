@@ -165,6 +165,3 @@ extension Element: Equatable, Comparable, Hashable {
         return lhs.name == rhs.name && lhs.atomicNumber == rhs.atomicNumber && lhs.atomicMass == rhs.atomicMass
     }
 }
-
-
-
