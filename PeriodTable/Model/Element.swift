@@ -30,6 +30,9 @@ class Element {
     let meltTitle = "melting point"
     let molarHeatTitle = "molar heat"
     
+  
+    
+    
     //MARK: Element Properties
     var name: String { return _name }
     var symbol: String { return _symbol }
