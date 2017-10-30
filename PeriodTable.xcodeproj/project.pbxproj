@@ -19,6 +19,7 @@
 		006B78621F87900200A46624 /* PeriodicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B78611F87900200A46624 /* PeriodicTable.swift */; };
 		006B78641F8795E800A46624 /* ElementViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B78631F8795E800A46624 /* ElementViewCell.swift */; };
 		006B78661F87BFC200A46624 /* DetailedElementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006B78651F87BFC200A46624 /* DetailedElementVC.swift */; };
+		009E3A141FA714A00040BE5E /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009E3A131FA714A00040BE5E /* NoteVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		006B78611F87900200A46624 /* PeriodicTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTable.swift; sourceTree = "<group>"; };
 		006B78631F8795E800A46624 /* ElementViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementViewCell.swift; sourceTree = "<group>"; };
 		006B78651F87BFC200A46624 /* DetailedElementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedElementVC.swift; sourceTree = "<group>"; };
+		009E3A131FA714A00040BE5E /* NoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				0049A3A41F8724D500F39431 /* MainVC.swift */,
 				006B78651F87BFC200A46624 /* DetailedElementVC.swift */,
+				009E3A131FA714A00040BE5E /* NoteVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				0049A3B91F87266000F39431 /* Element.swift in Sources */,
 				006B78621F87900200A46624 /* PeriodicTable.swift in Sources */,
 				0039266C1F87492C001A96AB /* DataService.swift in Sources */,
+				009E3A141FA714A00040BE5E /* NoteVC.swift in Sources */,
 				006B78641F8795E800A46624 /* ElementViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

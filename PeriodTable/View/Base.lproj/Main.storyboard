@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -182,11 +182,41 @@
                         <outlet property="phase" destination="keE-5O-Kdf" id="Ayw-Mc-iXk"/>
                         <outlet property="symbol" destination="FFn-Pw-x6c" id="OFj-uV-gHd"/>
                         <outlet property="webpageImage" destination="eQA-ow-ysc" id="is5-vP-ZmT"/>
+                        <segue destination="kyu-9Y-SJU" kind="show" identifier="toNoteVC" id="ghg-Uz-ANN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAr-n7-tf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="24.7376311844078"/>
+            <point key="canvasLocation" x="993" y="25"/>
+        </scene>
+        <!--NoteVC-->
+        <scene sceneID="b3q-hy-aLb">
+            <objects>
+                <viewController id="kyu-9Y-SJU" customClass="NoteVC" customModule="PeriodTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t5w-up-MgA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="md7-N4-iqj">
+                                <rect key="frame" x="16" y="75" width="343" height="572"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="md7-N4-iqj" firstAttribute="leading" secondItem="lSl-RX-4zj" secondAttribute="leading" constant="16" id="b1A-9Z-6lm"/>
+                            <constraint firstItem="lSl-RX-4zj" firstAttribute="trailing" secondItem="md7-N4-iqj" secondAttribute="trailing" constant="16" id="ovg-10-Qwn"/>
+                            <constraint firstItem="lSl-RX-4zj" firstAttribute="bottom" secondItem="md7-N4-iqj" secondAttribute="bottom" constant="20" id="vj7-OM-FML"/>
+                            <constraint firstItem="md7-N4-iqj" firstAttribute="top" secondItem="lSl-RX-4zj" secondAttribute="top" constant="11" id="x8T-Fy-iiB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lSl-RX-4zj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcX-4x-sdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="23.838080959520241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g4P-bH-8W5">

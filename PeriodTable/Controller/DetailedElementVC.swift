@@ -24,6 +24,8 @@ class DetailedElementVC: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = element.name
+        let addNoteBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+        navigationItem.rightBarButtonItem = addNoteBarButton
         updateUIDetailedVC()
     }
 
@@ -42,6 +44,19 @@ class DetailedElementVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped(gesture:)))
         webpageImage.addGestureRecognizer(tap)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? NoteVC {
+            if let element =  sender as? Element {
+                destinationViewController.element = element
+            }
+        }
+    }
+    
+    @objc private func addNote(){
+        performSegue(withIdentifier: "toNoteVC", sender: element)
+    }
+    
     
     @objc private func imageTapped(gesture: UITapGestureRecognizer){
         guard let url = URL(string: element.source) else { return }
